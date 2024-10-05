@@ -3,25 +3,28 @@ import { View, Text, Image, TouchableOpacity } from 'react-native'
 
 import styles from './popularjobcard.style'
 import { checkImageURL } from '../../../../utils'
+import { useRouter } from 'expo-router'
 const PopularJobCard = (props) => {
   const { item, selectedJob, handleCardPress } = props;
+  const router = useRouter();
 
 
   return (
     <TouchableOpacity style={styles.container(selectedJob, item)}
-
+      onPress={() => handleCardPress(item)}
     >
       <TouchableOpacity style={styles.logoContainer(selectedJob, item)}>
         <Image
           style={styles.logoImage}
           source={{
-            uri: checkImageURL(item.employer_logo) ?
-              item.employer_logo :
-              "https://t4.ftcdn.net/jpg/05/05/61/73/360_F_505617309_NN1CW7diNmGXJfMicpY9eXHKV4sqzO5H.jpg",
+            uri: item.employer_logo
+            // checkImageURL(item.employer_logo) ?
+            //   item.employer_logo :
+            //   "https://t4.ftcdn.net/jpg/05/05/61/73/360_F_505617309_NN1CW7diNmGXJfMicpY9eXHKV4sqzO5H.jpg",
 
           }}
           resizeMode="contain"
-          onPress={() => handleCardPress(item)}
+
         />
       </TouchableOpacity>
       <Text style={styles.companyName} numberOfLines={1}>{item.employer_name}</Text>

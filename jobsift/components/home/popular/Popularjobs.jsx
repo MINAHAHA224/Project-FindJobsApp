@@ -10,9 +10,10 @@ const Popularjobs = () => {
   const router = useRouter();
 
   const { data, isLoading, error } = useFetch('search', {
-    query: "ReactJS",
+    query: "NodeJS",
     num_pages: 1
   })
+
 
   const [selectedJob, setSelectedJob] = useState({});
   const handleCardPress = (item) => {
