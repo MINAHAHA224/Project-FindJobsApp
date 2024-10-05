@@ -3,10 +3,22 @@ import { View, Text, ActivityIndicator, FlatList, TouchableOpacity } from 'react
 import PopularJobCard from '../../common/cards/popular/PopularJobCard';
 import styles from './popularjobs.style'
 import { COLORS, SIZES } from '../../../constants';
+import useFetch from '../../../hook/useFetch'
+import { useRouter } from 'expo-router';
 
 const Popularjobs = () => {
-  const [isLoading, setIsLoading] = useState(false);
-  const error = false
+  const router = useRouter();
+
+  const { data, isLoading, error } = useFetch('search', {
+    query: "ReactJS",
+    num_pages: 1
+  })
+
+  const [selectedJob, setSelectedJob] = useState({});
+  const handleCardPress = (item) => {
+    router.push(`/job-details/${item.job_id}`);
+    setSelectedJob(item.job_id);
+  }
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -22,10 +34,10 @@ const Popularjobs = () => {
           error ?
             <Text>Something went wrong!!!</Text> :
             <FlatList
-              data={[1, 2, 3, 4]}
+              data={data}
               renderItem={({ item }) => (
 
-                <PopularJobCard item={item} />
+                <PopularJobCard item={item} selectedJob={selectedJob} handleCardPress={handleCardPress} />
               )}
 
               keyExtractor={item => item?.job_id}
