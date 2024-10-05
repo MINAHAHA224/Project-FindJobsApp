@@ -8,15 +8,13 @@ import { useRouter } from 'expo-router'
 
 
 const NearbyJobCard = (props) => {
-  const { job } = props;
+  const { job, handleCardPress } = props;
   const router = useRouter();
-  const handleNavigate = (job) => {
-    router.push(`/job-details/${job.job_id}`)
-  }
+
 
   return (
     <TouchableOpacity style={styles.container}
-      onPress={() => handleNavigate(job)}
+      onPress={() => handleCardPress(job)}
     >
       <TouchableOpacity style={styles.logoContainer}>
         <Image

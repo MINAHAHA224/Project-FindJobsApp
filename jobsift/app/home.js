@@ -9,7 +9,6 @@ import {
   ScreenHeaderBtn,
   Welcome,
 } from "../components";
-import { ScreenStackHeaderSearchBarView } from "react-native-screens";
 
 const Home = () => {
   const router = useRouter()
@@ -23,7 +22,7 @@ const Home = () => {
         options={{
 
           headerStyle: { backgroundColor: COLORS.lightWhite },
-          headerShadowVisible: true,
+          headerShadowVisible: false,
           headerLeft: () => (
             <ScreenHeaderBtn iconUrl={icons.menu} dimension='60%' />
           ),
