@@ -7,13 +7,13 @@ export default function useFetch(endPoint, query) {
 
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-    const [error, setError] = useState(false);
+    const [error, setError] = useState(null);
 
     const options = {
         method: 'GET',
         url: `https://jsearch.p.rapidapi.com/${endPoint}`,
         headers: {
-            'x-rapidapi-key': '7774efe3abmsh60d765ee8fcbd6bp1404efjsn5b4d253b60b2',
+            'x-rapidapi-key': 'dd08e616c9mshd98fb740fa0194cp1920edjsn61bf0c3af932',
             'x-rapidapi-host': 'jsearch.p.rapidapi.com'
         },
         params: {

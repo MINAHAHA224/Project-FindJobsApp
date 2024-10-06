@@ -11,6 +11,9 @@ import styles from '../../styles/search'
 const JobSearch = () => {
     const params = useSearchParams();
     const router = useRouter()
+    const handleCardPress = (item) => {
+        router.push(`/job-details/${item.job_id}`)
+    }
 
     const [searchResult, setSearchResult] = useState([]);
     const [searchLoader, setSearchLoader] = useState(false);
@@ -26,7 +29,7 @@ const JobSearch = () => {
                 method: "GET",
                 url: `https://jsearch.p.rapidapi.com/search`,
                 headers: {
-                    "X-RapidAPI-Key": '7774efe3abmsh60d765ee8fcbd6bp1404efjsn5b4d253b60b2',
+                    "X-RapidAPI-Key": 'dd08e616c9mshd98fb740fa0194cp1920edjsn61bf0c3af932',
                     "X-RapidAPI-Host": "jsearch.p.rapidapi.com",
                 },
                 params: {
@@ -81,11 +84,10 @@ const JobSearch = () => {
                 renderItem={({ item }) => (
                     <NearbyJobCard
                         job={item}
-                        handleNavigate={() => router.push(`/job-details/${item.job_id}`)}
+                        handleCardPress={handleCardPress}
                     />
                 )}
                 keyExtractor={(item) => item.job_id}
-                showsVerticalScrollIndicator={false}
                 contentContainerStyle={{ padding: SIZES.medium, rowGap: SIZES.medium }}
                 ListHeaderComponent={() => (
                     <>

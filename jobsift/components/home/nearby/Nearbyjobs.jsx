@@ -11,10 +11,11 @@ import styles from './nearbyjobs.style'
 const Nearbyjobs = () => {
   const router = useRouter();
 
-  const { data, isLoading, error } = useFetch('search', {
-    query: "NodeJS",
+  const { data, isLoading, error } = useFetch("search", {
+    query: "React Native developer",
     num_pages: 1
   })
+
   const handleCardPress = (job) => {
     router.push(`/job-details/${job.job_id}`);
   }

@@ -5,6 +5,19 @@
       "bundler": "metro"
     },
     "name": "jobsift",
-    "slug": "jobsift"
+    "slug": "jobsift",
+    "extra": {
+      "eas": {
+        "projectId": "d6955afe-e63d-4f0e-b758-1ee8e9785250"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/d6955afe-e63d-4f0e-b758-1ee8e9785250"
+    },
+    "android": {},
+    "ios": {}
   }
 }
